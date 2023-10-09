@@ -19,6 +19,7 @@ drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 cap = cv2.VideoCapture(0)
 
 # timer = 0
+audio_file = ""
 startTimer = time.time()
 while cap.isOpened():
     success, image = cap.read()
@@ -159,7 +160,7 @@ while cap.isOpened():
         print("Timer Count : ", round(timer, 2))
         print("\n")
         if timer >= 5.0:
-            audio_file = "D:\\programs\\head_pose_estimation\\audio_alert.wav"
+            audio_file = r".\audio_alert.wav"
             playsound(audio_file)
             print("Alert Detectd")
 
