@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 from playsound import playsound
-
+from fetch_api import push_alert
 
 mp_face_mesh = mp.solutions.face_mesh
 
@@ -16,6 +16,7 @@ mp_drawing = mp.solutions.drawing_utils
 
 drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
+# cap = cv2.VideoCapture('rtsp://admin:AFLHTQ@192.168.43.224:554')  //Camera IP Address
 cap = cv2.VideoCapture(0)
 
 # timer = 0
@@ -163,6 +164,7 @@ while cap.isOpened():
             audio_file = r".\audio_alert.wav"
             playsound(audio_file)
             print("Alert Detectd")
+            push_alert()
 
         end = time.time()
         totalTime = end - start
